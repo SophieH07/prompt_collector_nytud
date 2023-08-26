@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  next-app:
+    container_name: prompt-collector
+    build:
+      dockerfile: Dockerfile
+
+    # Set environment variables directly in the docker-compose file
+    environment:
+      ENV_VARIABLE: ${ENV_VARIABLE}
+      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+
+    # Set envrionment variables based on the .env file
+    env_file:
+      - .env
+    volumes:
+      - ./next-app/app:/app/app
+      - ./next-app/public:/app/public
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - my_network
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    ports:
+      - 5432:5432
+    networks:
+      - my_network
+
+  # Add more containers below (nginx, postgres, etc.)
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  my_network:
