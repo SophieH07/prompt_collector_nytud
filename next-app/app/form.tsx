@@ -7,13 +7,24 @@ export default function Form() {
   let [answer, setAnswer] = useState("")
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const formData = new FormData(event.currentTarget)
-    const response = await fetch('/api/db', {
-      method: 'POST',
-      body: formData,
-    })
+    try {
+      const response = await fetch('/api/db', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: prompt, response: answer }), 
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit data'); 
+      }
+
+    } catch (error) {
+      console.error('An error occurred while submitting:', error);
+    }
   }
 
   return (
