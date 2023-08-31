@@ -18,7 +18,10 @@ export default function Form() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ prompt: prompt, response: answer }),
+          body: JSON.stringify({
+            prompt: prompt,
+            response: answer,
+          }),
         });
 
         if (!response.ok) {

@@ -10,7 +10,7 @@ datasource db {
 model Prompt {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
-  email     String?  @unique
+  email     String?
   prompt    String
   response  String
   status    Status   @default(UNGRADED)

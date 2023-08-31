@@ -1,17 +1,18 @@
 import { PrismaClient, Prisma } from '@prisma/client'
 import { NextRequest } from 'next/server'
+import { getSession } from "@auth0/nextjs-auth0"
 
 const prisma = new PrismaClient()
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
+    const { user } = await getSession();
     const {
         prompt,
-        response,
-        email
-    } = await req.json();
+        response
+    } = await request.json();
     let insertPrompt: Prisma.Prompt;
     insertPrompt = {
-        email: email,
+        email: user?.email || '',
         prompt: prompt || '',
         response: response || '',
     }
