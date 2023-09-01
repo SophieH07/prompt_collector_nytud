@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
         prompt,
         response
     } = await request.json();
-    let insertPrompt: Prisma.Prompt;
+    let insertPrompt: any;
     insertPrompt = {
         email: user?.email || '',
         prompt: prompt || '',
