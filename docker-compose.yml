@@ -4,12 +4,9 @@ services:
   next-app:
     container_name: prompt-collector
     build:
+    build:
+      context: ./next-app  # Relative path to the directory containing the Dockerfile
       dockerfile: Dockerfile
-
-    # Set environment variables directly in the docker-compose file
-    environment:
-      ENV_VARIABLE: ${ENV_VARIABLE}
-      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
 
     # Set envrionment variables based on the .env file
     env_file:
