@@ -8,13 +8,15 @@ export async function POST(request: NextRequest) {
     const { user } = await getSession() || {};
     const {
         prompt,
-        response
+        response,
+        suggestion
     } = await request.json();
     let insertPrompt: any;
     insertPrompt = {
         email: user?.email || '',
         prompt: prompt || '',
         response: response || '',
+        suggestion: suggestion || ''
     }
 
     await prisma.prompt.create({

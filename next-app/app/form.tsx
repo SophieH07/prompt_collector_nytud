@@ -4,6 +4,8 @@ import { useState, FormEvent } from "react";
 export default function Form() {
   let [prompt, setPrompt] = useState("");
   let [answer, setAnswer] = useState("");
+  let [suggestion, setSuggestion] = useState("");
+  let [status, setStatus] = useState(["PERFECT", "FIX", "BAD", "UNGRADED"]);
   let [isLoading, setIsLoading] = useState(false);
   let [isEmpty, setIsEmpty] = useState(false);
 
@@ -21,6 +23,7 @@ export default function Form() {
           body: JSON.stringify({
             prompt: prompt,
             response: answer,
+            suggestion: suggestion,
           }),
         });
 
@@ -69,6 +72,16 @@ export default function Form() {
                 className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 onChange={(e) => setAnswer(e.target.value)}
                 value={answer}
+              />
+            </div>
+            <div className="pt-5">
+              <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
+                javaslat
+              </label>
+              <textarea
+                className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                onChange={(e) => setSuggestion(e.target.value)}
+                value={suggestion}
               />
             </div>
           </div>
