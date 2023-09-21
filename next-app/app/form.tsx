@@ -5,9 +5,13 @@ export default function Form() {
   let [prompt, setPrompt] = useState("");
   let [answer, setAnswer] = useState("");
   let [suggestion, setSuggestion] = useState("");
-  let [status, setStatus] = useState(["PERFECT", "FIX", "BAD", "UNGRADED"]);
+  let [status, setStatus] = useState("");
   let [isLoading, setIsLoading] = useState(false);
   let [isEmpty, setIsEmpty] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setStatus(event.target.value);
+  };
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,6 +28,7 @@ export default function Form() {
             prompt: prompt,
             response: answer,
             suggestion: suggestion,
+            status: status,
           }),
         });
 
@@ -39,6 +44,8 @@ export default function Form() {
       setIsLoading(false);
       setPrompt("");
       setAnswer("");
+      setSuggestion("");
+      setStatus("");
     }
   }
 
@@ -74,6 +81,23 @@ export default function Form() {
                 value={answer}
               />
             </div>
+            <div className="pt-5 flex">
+              <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold pr-3">
+                Értékelés:
+              </label>
+              <select
+                id="status"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+              >
+                <option value="UNGRADED"></option>
+                <option value="PERFECT">Tökéletes</option>
+                <option value="FIX">Javítandó</option>
+                <option value="BAD">Rossz</option>
+              </select>
+            </div>
+
             <div className="pt-5">
               <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
                 javaslat

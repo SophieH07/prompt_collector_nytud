@@ -9,14 +9,16 @@ export async function POST(request: NextRequest) {
     const {
         prompt,
         response,
-        suggestion
+        suggestion,
+        status
     } = await request.json();
     let insertPrompt: any;
     insertPrompt = {
         email: user?.email || '',
         prompt: prompt || '',
         response: response || '',
-        suggestion: suggestion || ''
+        suggestion: suggestion || '',
+        status: status || 'UNGRADED'
     }
 
     await prisma.prompt.create({
