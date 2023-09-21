@@ -82,8 +82,8 @@ export default function Form() {
               />
             </div>
             <div className="pt-5 flex">
-              <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold pr-3">
-                Értékelés:
+              <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold pr-3 pt-1">
+                értékelés:
               </label>
               <select
                 id="status"
