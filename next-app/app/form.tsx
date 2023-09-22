@@ -63,7 +63,7 @@ export default function Form() {
             )}
             <div className="">
               <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
-                prompt
+                prompt (amit kérdeztél a chatgpt-től)
               </label>
               <textarea
                 className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
@@ -73,7 +73,7 @@ export default function Form() {
             </div>
             <div className="pt-5">
               <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
-                válasz
+                válasz (amit a chatgpt-től kaptál)
               </label>
               <textarea
                 className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
@@ -92,7 +92,7 @@ export default function Form() {
                 onChange={(e) => setStatus(e.target.value)}
               >
                 <option value="UNGRADED"></option>
-                <option value="PERFECT">Tökéletes</option>
+                <option value="PERFECT">Teljesen rendben van</option>
                 <option value="FIX">Javítandó</option>
                 <option value="BAD">Rossz</option>
               </select>
@@ -100,7 +100,7 @@ export default function Form() {
 
             <div className="pt-5">
               <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
-                javaslat
+                javaslat (jobb, helyesebb válasz, saját megfogalmazásodban)
               </label>
               <textarea
                 className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
