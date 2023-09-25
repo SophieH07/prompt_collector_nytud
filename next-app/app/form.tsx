@@ -100,7 +100,8 @@ export default function Form() {
 
             <div className="pt-5">
               <label className="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
-                javaslat (jobb, helyesebb válasz, saját megfogalmazásodban)
+                javaslat (jobb, helyesebb válasz, saját megfogalmazásodban) -
+                opcionális
               </label>
               <textarea
                 className="block resize p-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
