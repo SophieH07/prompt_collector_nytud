@@ -10,7 +10,6 @@
     "prisma:generate": "prisma generate --schema=./prisma/schema.prisma"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^3.1.0",
     "@prisma/client": "^5.2.0",
     "@types/node": "20.5.6",
     "@types/react": "18.2.21",
@@ -20,6 +19,7 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
+    "openai": "^4.23.0",
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
