@@ -10,10 +10,11 @@ datasource db {
 model Prompt {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  email      String?
+  answeredAt DateTime
   prompt     String
   response   String
   suggestion String?
+  reponseFrom Source
   status     Status   @default(UNGRADED)
 }
 
@@ -22,4 +23,10 @@ enum Status {
   FIX
   BAD
   UNGRADED
+}
+
+enum Source {
+  PULI
+  GPT3
+  USER
 }
