@@ -10,11 +10,11 @@ datasource db {
 model Prompt {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  answeredAt DateTime
+  answeredAt DateTime?
   prompt     String
-  response   String
+  response   String?
   suggestion String?
-  reponseFrom Source
+  responseFrom Source?
   status     Status   @default(UNGRADED)
 }
 

@@ -1,3 +1,4 @@
+"use client"
 import NavBar from "./layout/navbar";
 import Form from "./answer-form";
 import Footer from "./layout/footer";
