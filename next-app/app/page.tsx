@@ -1,14 +1,22 @@
 "use client"
 import NavBar from "./layout/navbar";
-import Form from "./answer-form";
 import Footer from "./layout/footer";
 
 export default function Home() {
   return (
     <div>
-      <NavBar text='' />
+      <NavBar />
       <main className="py-20 min-h-screen">
-        <Form />
+        <div className="flex justify-center">
+
+        <a className="text-2xl" 
+        href="/question">Kérdés validálás</a>
+        </div>
+        <div className="flex justify-center">
+
+        <a className="text-2xl"
+         href="/answer">Válasz validálás</a>
+        </div>
       </main>
       <Footer />
     </div>

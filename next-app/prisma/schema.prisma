@@ -7,7 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Prompt {
+model Prompt_Q {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  answeredAt DateTime?
+  prompt     String
+  response   String?
+  suggestion String?
+  promptFrom Source?
+  status     Status   @default(UNGRADED)
+}
+
+model Prompt_A {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
   answeredAt DateTime?
@@ -20,7 +31,9 @@ model Prompt {
 
 enum Status {
   PERFECT
-  FIX
+  GOOD
+  MEDIUM
+  FAULTY
   BAD
   UNGRADED
 }

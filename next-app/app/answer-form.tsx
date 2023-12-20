@@ -116,30 +116,7 @@ export default function Form() {
             
           </div>
           <div className="flex justify-center pt-5">
-            <input
-              type="submit"
-              value="Rossz"
-              className="text-white bg-red-700 hover:bg-red-800 cursor-pointer focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full lg:py-3 sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-              onClick={() => setStatus('BAD') }
-            />
-            <input
-              type="submit"
-              value="Rendben van"
-              className="text-white bg-blue-700 hover:bg-blue-800 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full lg:py-3 sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={() => setStatus('FIX') }
-            />
-            <input
-              type="submit"
-              value="Remek válasz"
-              className="text-white bg-green-700 hover:bg-blue-800 cursor-pointer focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full lg:py-3 sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-              onClick={() => setStatus('PERFECT')}
-            />
-            <input
-              type="submit"
-              value="Javítottam"
-              className="text-white bg-blue-700 hover:bg-blue-800 cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full lg:py-3 sm:w-auto px-5 py-2.5 text-center dark:bg-white-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={() => setStatus('CORRECTED')}
-            />
+            
           </div>
         </form>
       </div>
