@@ -2,7 +2,7 @@ version: '3'
 
 services:
   next-app:
-    image: docker.nlp.nytud.hu/prompt-collector:latest
+    build: ./next-app
 
     # Set envrionment variables based on the .env file
     volumes:
@@ -19,7 +19,7 @@ services:
       - postgres
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:15
     restart: always
     environment:
       - DATABASE_HOST=127.0.0.1

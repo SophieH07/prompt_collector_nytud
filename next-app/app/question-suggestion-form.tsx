@@ -35,6 +35,10 @@ export default function QuestionSuggestionForm() {
   }, []);
 
   const restoreForm = () => {
+    if (fetchedPrompt !== null && fetchedPrompt?.prompt !== null && fetchedPrompt?.response !== null){
+      setPrompt('');
+      setAnswer('');
+    }
     setPrompt(fetchedPrompt.prompt);
     setAnswer(fetchedPrompt.response || '');
     setSuggestion('');
@@ -51,7 +55,7 @@ export default function QuestionSuggestionForm() {
     try {
       if (prompt.trim().length > 0 && answer.trim().length > 0) {
         setIsEmpty(false);
-        const response = await fetch("/api/db", {
+        const response = await fetch("/api/question-suggest", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +63,7 @@ export default function QuestionSuggestionForm() {
           body: JSON.stringify({
             id: fetchedPrompt.id,
             suggestion: prompt,
-            status: status,
+            status: status || "UNGRADED",
           }),
         });
 

@@ -1,4 +1,5 @@
 "use client";
+/* eslint no-use-before-define: 0 */
 import { useState, FormEvent, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
@@ -56,7 +57,6 @@ export default function AnswerSuggestionForm() {
           },
           body: JSON.stringify({
             id: fetchedPrompt.id,
-            prompt: prompt,
             suggestion: answer,
             status: status || 'UNGRADED',
           }),
