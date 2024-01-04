@@ -45,9 +45,10 @@ export default function QuestionSuggestionForm() {
     setStatus('');
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
     setStatus(event.target.value);
-  };
+};
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -105,15 +106,15 @@ export default function QuestionSuggestionForm() {
               />
             </div>
             <div className="flex space-x-4">
-              <input type="radio" id="bad" name="status" value="BAD" onChange={() => handleChange} />
+              <input type="radio" id="bad" name="status" value="BAD" onChange={handleChange} />
               <label htmlFor="bad">Rossz</label>
-              <input type="radio" id="faulty" name="status" value="FAULTY" onChange={() => handleChange} />
+              <input type="radio" id="faulty" name="status" value="FAULTY" onChange={handleChange} />
               <label htmlFor="faulty">Hibás</label>
-              <input type="radio" id="medium" name="status" value="MEDIUM" onChange={() => handleChange} />
+              <input type="radio" id="medium" name="status" value="MEDIUM" onChange={handleChange} />
               <label htmlFor="medium">Közepes</label>
-              <input type="radio" id="good" name="status" value="GOOD" onChange={() => handleChange} />
+              <input type="radio" id="good" name="status" value="GOOD" onChange={handleChange} />
               <label htmlFor="good">Rendben van</label>
-              <input type="radio" id="perfect" name="status" value="PERFECT" onChange={() => handleChange} />
+              <input type="radio" id="perfect" name="status" value="PERFECT" onChange={handleChange} />
               <label htmlFor="perfect">Tökéletes</label>
             </div>
             <div className="pt-5">
