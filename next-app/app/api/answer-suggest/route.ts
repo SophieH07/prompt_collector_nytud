@@ -43,5 +43,17 @@ export async function GET(request: NextRequest) {
             id: Number(id)
         }
     })
+
+    if (prompt) {
+        await prisma.Prompt_A.update({
+            where: {
+                id: prompt.id,
+            },
+            data: {
+                suggestion: '',
+            },
+        });
+    }
+
     return NextResponse.json(prompt)
 }
